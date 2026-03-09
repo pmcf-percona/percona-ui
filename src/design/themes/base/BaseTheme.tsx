@@ -122,18 +122,6 @@ export const primitives = {
       100: "#FFD7B8",
       50: "#FFF2E8",
     },
-    fire: {
-      900: "#661D00",
-      800: "#852600",
-      700: "#AC3100",
-      600: "#DC3F00",
-      500: "#F24500",
-      400: "#F56A33",
-      300: "#F68254",
-      200: "#F9A98A",
-      100: "#FBC5B0",
-      50: "#FEECE6",
-    },
     night: {
       900: "#060B23",
       800: "#080E2E",
@@ -145,6 +133,18 @@ export const primitives = {
       200: "#9096B0",
       100: "#B4B8CA",
       50: "#E7E8EE",
+    },
+    fire: {
+      900: "#661D00",
+      800: "#852600",
+      700: "#AC3100",
+      600: "#DC3F00",
+      500: "#F24500",
+      400: "#F56A33",
+      300: "#F68254",
+      200: "#F9A98A",
+      100: "#FBC5B0",
+      50: "#FEECE6",
     },
     sky: {
       900: "#08386B",
@@ -205,21 +205,9 @@ export const primitives = {
       200: "#BAC0CD",
       100: "#D1D5DE",
       50: "#F0F1F4",
-    }
+    },
   },
   extra: {
-    yellow: {
-      900: "#70510A",
-      800: "#9C7407",
-      700: "#C89A04",
-      600: "#F2C202",
-      500: "#FED520",
-      400: "#FFE047",
-      300: "#FFE770",
-      200: "#FFEE99",
-      100: "#FFF5C2",
-      50: "#FFFCEB",
-    },
     red: {
       900: "#4D0000",
       800: "#700000",
@@ -243,7 +231,19 @@ export const primitives = {
       200: "#85CFBC",
       100: "#B6E3D6",
       50: "#E7F6F1",
-    }
+    },
+    yellow: {
+      900: "#70510A",
+      800: "#9C7407",
+      700: "#C89A04",
+      600: "#F2C202",
+      500: "#FED520",
+      400: "#FFE047",
+      300: "#FFE770",
+      200: "#FFEE99",
+      100: "#FFF5C2",
+      50: "#FFFCEB",
+    },
   },
   base: {
     white: "#FFFFFF",
@@ -313,7 +313,7 @@ export const semanticTokensLight = {
     light: primitives.brand.stone[700],
     main: primitives.brand.stone[800],
     dark: primitives.brand.stone[900],
-    surface: "rgba(44, 50, 62, 0.12)", // Same as action.focus
+    surface: "rgba(44, 50, 62, 0.12)",
     contrastText: primitives.brand.stone[800],
   },
   // Charts (light mode)
@@ -388,7 +388,7 @@ export const semanticTokensDark = {
     light: primitives.base.white,
     main: primitives.brand.stone[50],
     dark: primitives.brand.stone[100],
-    surface: "rgba(240, 241, 244, 0.15)",  // Same as action.focus
+    surface: "rgba(240, 241, 244, 0.15)",
     contrastText: primitives.brand.stone[50],
   },
   // Charts (dark mode)
