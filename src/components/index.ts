@@ -78,6 +78,9 @@ export { default as NotistackMuiSnackbar } from './notistack-mui-snackbar';
 export * from './actionable-labeled-content';
 export { default as ActionableLabeledContent } from './actionable-labeled-content';
 
+export * from './code';
+export { Code, CodeBlock } from './code';
+
 export * from './code-copy-block';
 export { default as CodeCopyBlock } from './code-copy-block';
 
