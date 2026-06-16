@@ -71,6 +71,7 @@ export { default as ProgressBar } from './progress-bar';
 export * from './table';
 export { default as Table } from './table';
 
+export * from './buttons/copy-to-clipboard-button';
 export { default as CopyToClipboardButton } from './buttons/copy-to-clipboard-button';
 
 export { default as NotistackMuiSnackbar } from './notistack-mui-snackbar';
@@ -89,3 +90,6 @@ export { default as Chip } from './chip';
 
 export * from './tooltip';
 export { default as Tooltip } from './tooltip';
+
+export * from './code';
+export { Code, CodeBlock } from './code';
