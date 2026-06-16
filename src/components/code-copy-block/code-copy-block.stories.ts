@@ -3,10 +3,17 @@ import CodeCopyBlock from './code-copy-block';
 import { CodeCopyBlockProps } from './code-copy-block.types';
 
 const meta = {
-  title: 'To be reviewed/Buttons/CodeCopyBlock',
+  title: 'Inputs/Buttons/Copy Code',
   component: CodeCopyBlock,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Legacy alert-style code snippet with a built-in copy action. Prefer `Code Block` with `copyable` for new work.',
+      },
+    },
   },
 } satisfies Meta<CodeCopyBlockProps>;
 

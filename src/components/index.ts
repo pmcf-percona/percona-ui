@@ -89,3 +89,7 @@ export { default as Chip } from './chip';
 
 export * from './tooltip';
 export { default as Tooltip } from './tooltip';
+
+export * from './code';
+export { default as Code } from './code/code';
+export { default as CodeBlock } from './code/code-block';
