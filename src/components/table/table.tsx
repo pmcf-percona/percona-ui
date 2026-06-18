@@ -15,6 +15,7 @@ import {
 } from 'material-react-table';
 import { useEffect } from 'react';
 import { mergeSx } from '@/utils';
+import { radii } from '../../design';
 import { ICONS_OPACITY } from './table.constants';
 import { TableProps } from './table.types';
 import usePersistentColumnVisibility from './usePersistentColumnVisibility';
@@ -185,7 +186,7 @@ function Table<T extends MRT_RowData>(props: TableProps<T>) {
       color: 'neutral',
       icon: false,
       sx: (theme: Theme) => ({
-        borderRadius: 1.25,
+        borderRadius: `${radii.sm}px`,
         fontSize: theme.typography.body2.fontSize,
         padding: '4px 8px',
         '& .MuiAlert-message': { padding: 0 },

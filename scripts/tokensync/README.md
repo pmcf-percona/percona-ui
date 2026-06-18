@@ -30,18 +30,27 @@ Utility to synchronize design tokens from a Figma export (in W3C Design Tokens f
 | `basis.primary.pmm`                            | Light / Dark | `pmmPrimaryLight` / `pmmPrimaryDark` (PmmTheme)          |
 
 
+### Border radius (`tokens.shape`)
+
+Border radius is centralized in the `radii` scale in `BaseTheme.tsx` and exposed on the theme as `theme.shape.radii`. The `tokens.shape.*` Figma variables map onto it as follows. The script does not yet rewrite this block automatically — update `radii` by hand when these values change.
+
+| **Figma variable**              | **Theme token** | **Value** |
+| ------------------------------- | --------------- | --------- |
+| —                               | `radii.none`    | `0`       |
+| —                               | `radii.xxs`     | `1`       |
+| `tokens.shape.borderRadiusXs`   | `radii.xs`      | `3`       |
+| `tokens.shape.borderRadiusSm`   | `radii.sm`      | `5`       |
+| `tokens.shape.borderRadiusMd`   | `radii.md`      | `8`       |
+| `tokens.shape.borderRadiusLg`   | `radii.lg`      | `13`      |
+| `tokens.shape.borderRadiusXl`   | `radii.xl`      | `21`      |
+| `tokens.shape.borderRadiusFull` | `radii.full`    | `999`     |
+| `tokens.shape.borderRadius`     | `radii.sm`      | `5` (default / alias for `borderRadiusSm`) |
+
 ### To be mapped
 
 
 | **Variable**                    | **Value(s)**                                                        |
 | ------------------------------- | ------------------------------------------------------------------- |
 | `basis.surfaces.elevationX`     | Light: `rgba(44, 50, 62, 0.04)` / Dark: `rgba(240, 241, 244, 0.08)` |
-| `tokens.shape.borderRadiusXs`   | `3`                                                                 |
-| `tokens.shape.borderRadiusSm`   | `5`                                                                 |
-| `tokens.shape.borderRadiusMd`   | `8`                                                                 |
-| `tokens.shape.borderRadiusLg`   | `12`                                                                |
-| `tokens.shape.borderRadiusXl`   | `18`                                                                |
-| `tokens.shape.borderRadiusFull` | `999`                                                               |
-| `tokens.shape.borderRadius`     | `5` (alias for `borderRadiusSm`)                                    |
 
 

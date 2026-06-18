@@ -1,0 +1,50 @@
+import * as BorderRadiusStories from './BorderRadius.stories.tsx';
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta of={BorderRadiusStories} />
+
+# Border Radius
+
+Corner rounding in Percona UI is centralized as a single token scale, layered on top of MUI's [`theme.shape`](https://mui.com/material-ui/customization/shape/). Every theme (`base`, `pmm`, `sep`) and component draws from this same source, so rounding stays consistent across all consumers.
+
+The scale follows a Fibonacci-like progression. `theme.shape.borderRadius` defaults to `radii.sm` (5px) — the value MUI components fall back to when no radius is set — while `radii.full` rounds pills and circular shapes.
+
+## Tokens
+
+| Token        | Value | Typical use                                 |
+| ------------ | ----- | ------------------------------------------- |
+| `radii.none` | 0px   | Squared corners (e.g. grouped middle items) |
+| `radii.xxs`  | 1px   | Hairline rounding                           |
+| `radii.xs`   | 3px   | Inline code, focus outlines                 |
+| `radii.sm`   | 5px   | **Default** — inputs, alerts, code blocks   |
+| `radii.md`   | 8px   | Cards, accordions, surfaces                 |
+| `radii.lg`   | 13px  | Larger containers                           |
+| `radii.xl`   | 21px  | Prominent containers, nav items             |
+| `radii.full` | 999px | Pills, buttons, circular shapes             |
+
+<Canvas of={BorderRadiusStories.ScaleShowcase} sourceState="none" />
+
+## Using the tokens
+
+Inside theme overrides and component `sx`, read the scale from the theme:
+
+```tsx
+// Component override / sx callback
+root: ({ theme }) => ({
+  borderRadius: theme.shape.radii.md, // 8px
+});
+
+// sx shorthand needs an explicit unit (string), since the numeric
+// `borderRadius` shorthand multiplies by theme.shape.borderRadius
+<Box sx={(theme) => ({ borderRadius: `${theme.shape.radii.full}px` })} />;
+```
+
+You can also import the scale directly when you are outside of a theme context:
+
+```tsx
+import { radii } from '@percona/percona-ui';
+
+const cardRadius = radii.md; // 8
+```
+
+<Canvas of={BorderRadiusStories.UsageShowcase} sourceState="none" />

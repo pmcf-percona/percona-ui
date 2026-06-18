@@ -88,6 +88,7 @@ const preview: Preview = {
               'Charts'
             ],
             'Typography',
+            'Border Radius',
             'Icons'
           ],
           'Inputs', ['Icon Button', 'Text Field', 'Copy to Clipboard'],

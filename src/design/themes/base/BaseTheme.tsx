@@ -90,6 +90,15 @@ declare module '@mui/material/styles' {
       styleOverrides?: ComponentsOverrides<Theme>['MuiMultiSectionDigitalClock'];
     };
   }
+
+  // Border radius scale exposed on the theme (theme.shape.radii.*)
+  interface Shape {
+    radii: Radii;
+  }
+
+  interface ShapeOptions {
+    radii?: Radii;
+  }
 }
 
 declare module '@mui/material/Typography' {
@@ -275,6 +284,21 @@ export const primitives = {
 } as const;
 
 export type Primitives = typeof primitives;
+
+// Border radius scale — single source of truth for corner rounding across all themes.
+// Fibonacci-like progression; `sm` is the default, `full` rounds pills and circular shapes.
+export const radii = {
+  none: 0,
+  xxs: 1,
+  xs: 3,
+  sm: 5,
+  md: 8,
+  lg: 13,
+  xl: 21,
+  full: 999,
+} as const;
+
+export type Radii = typeof radii;
 
 // Semantic color tokens - Light mode
 export const semanticTokensLight = {
@@ -738,6 +762,10 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
         xl: 1536,
       },
     },
+    shape: {
+      borderRadius: radii.sm,
+      radii,
+    },
     components: {
       MuiCssBaseline: {
         styleOverrides: {
@@ -747,7 +775,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
             color: tokens.text.secondary,
             backgroundColor: tokens.action.hover,
             border: `1px solid ${tokens.lines.contour}`,
-            borderRadius: '3px',
+            borderRadius: radii.xs,
             padding: '0 0.125em 0.0625em',
             whiteSpace: 'break-spaces' as const,
             wordBreak: 'break-word' as const,
@@ -851,7 +879,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
         },
         styleOverrides: {
           root: ({ ownerState, theme }) => ({
-            borderRadius: 128,
+            borderRadius: radii.full,
             borderWidth: 2,
 
             '.MuiButton-startIcon': {
@@ -929,7 +957,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
       MuiButtonGroup: {
         styleOverrides: {
           root: {
-            borderRadius: '128px',
+            borderRadius: radii.full,
           },
           grouped: ({ ownerState }) => ({
             '&:not(:last-of-type)': {
@@ -974,7 +1002,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
         styleOverrides: {
           root: ({ theme, ownerState }) => ({
             ...theme.typography.inputText,
-            borderRadius: 5,
+            borderRadius: radii.sm,
             [`& .${outlinedInputClasses.notchedOutline}`]: {
               borderWidth: 2,
               borderColor: theme.palette.dividers?.divider,
@@ -1186,7 +1214,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
             '&:focus-visible': {
               outline: `2px solid ${tokens.text.accent1}`,
               outlineOffset: '2px',
-              borderRadius: '2px',
+              borderRadius: radii.xs,
             },
           },
         },
@@ -1197,7 +1225,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: 'rgba(44, 50, 62, 0.25)', // TODO move into pallet =#2C323E 25%
-            borderRadius: theme.spacing(1),
+            borderRadius: radii.md,
             backgroundColor: theme.palette.action.hover,
             boxShadow: 'none',
             '&:before': {
@@ -1304,7 +1332,7 @@ const baseThemeOptions = (mode: PaletteMode): ThemeOptions => {
             return {
               ...theme.typography.body1,
               minHeight: 40,
-              borderRadius: 5,
+              borderRadius: radii.sm,
               border: `1px solid ${theme.palette.dividers?.divider}`,
               ...bg,
               padding: '4px 8px',

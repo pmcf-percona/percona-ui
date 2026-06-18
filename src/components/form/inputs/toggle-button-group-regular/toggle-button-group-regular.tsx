@@ -1,4 +1,5 @@
 import { FieldValues } from 'react-hook-form';
+import { radii } from '../../../../design';
 import { ToggleButtonGroupInputProps } from '../toggle-button-group';
 import ToggleButtonGroupInput from '../toggle-button-group/toggle-button-group';
 
@@ -20,20 +21,20 @@ const ToggleButtonGroupInputRegular = <T extends FieldValues = FieldValues>({
           },
 
           '.MuiButtonBase-root:not(:first-child, :last-child)': {
-            borderRadius: '0',
+            borderRadius: `${radii.none}px`,
           },
 
           '.MuiButtonBase-root: first-child': {
-            borderTopLeftRadius: '128px',
-            borderBottomLeftRadius: '128px',
-            borderTopRightRadius: '0%',
-            borderBottomRightRadius: '0%',
+            borderTopLeftRadius: `${radii.full}px`,
+            borderBottomLeftRadius: `${radii.full}px`,
+            borderTopRightRadius: `${radii.none}px`,
+            borderBottomRightRadius: `${radii.none}px`,
           },
           '.MuiButtonBase-root: last-child': {
-            borderTopLeftRadius: '0',
-            borderBottomLeftRadius: '0',
-            borderTopRightRadius: '128px',
-            borderBottomRightRadius: '128px',
+            borderTopLeftRadius: `${radii.none}px`,
+            borderBottomLeftRadius: `${radii.none}px`,
+            borderTopRightRadius: `${radii.full}px`,
+            borderBottomRightRadius: `${radii.full}px`,
           },
         },
         ...toggleButtonGroupProps,

@@ -1,4 +1,5 @@
 import { Box, LinearProgress } from '@mui/material';
+import { radii } from '../../design';
 import { ProgressBarProps } from './progress-bar.types';
 
 const ProgressBar = ({ dataTestId, value, buffer, total, label }: ProgressBarProps) => {
@@ -29,11 +30,11 @@ const ProgressBar = ({ dataTestId, value, buffer, total, label }: ProgressBarPro
           '&': {
             padding: '4px',
             backgroundColor: 'action.selected',
-            borderRadius: '32px',
+            borderRadius: `${radii.full}px`,
           },
           '& .MuiLinearProgress-bar': {
             margin: '1.6px',
-            borderRadius: '32px',
+            borderRadius: `${radii.full}px`,
           },
           '& .MuiLinearProgress-dashed': {
             display: 'none',

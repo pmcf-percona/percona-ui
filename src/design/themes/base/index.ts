@@ -14,9 +14,10 @@
 export { default } from './BaseTheme';
 export {
   primitives,
+  radii,
   semanticTokensLight,
   semanticTokensDark,
   defaultPrimaryLight,
   defaultPrimaryDark,
 } from './BaseTheme';
-export type { Primitives, SemanticTokens, PrimaryTokens } from './BaseTheme';
+export type { Primitives, Radii, SemanticTokens, PrimaryTokens } from './BaseTheme';

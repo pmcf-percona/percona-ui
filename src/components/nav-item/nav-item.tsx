@@ -6,6 +6,7 @@ import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import { listItemIconClasses } from '@mui/material/ListItemIcon';
 import { listItemTextClasses } from '@mui/material/ListItemText';
+import { radii } from '../../design';
 import type { NavItemProps } from './nav-item.types';
 
 const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
@@ -22,7 +23,7 @@ const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
           px: 2,
           py: 0.75,
           minHeight: 44,
-          borderRadius: 5.5,
+          borderRadius: `${radii.xl}px`,
           fontFamily: theme.typography.menuText.fontFamily,
 
           [`.${listItemTextClasses.primary}`]: {

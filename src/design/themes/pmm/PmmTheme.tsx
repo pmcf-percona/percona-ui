@@ -4,7 +4,12 @@ import { mergeThemeOptions } from '../../merge-theme-options';
 import { iconButtonClasses } from '@mui/material/IconButton';
 import { listItemIconClasses } from '@mui/material/ListItemIcon';
 import { listItemButtonClasses } from '@mui/material/ListItemButton';
-import baseThemeOptions, { primitives, semanticTokensLight, semanticTokensDark } from '../base';
+import baseThemeOptions, {
+  primitives,
+  radii,
+  semanticTokensLight,
+  semanticTokensDark,
+} from '../base';
 
 // PMM Primary color tokens
 export const pmmPrimaryLight = {
@@ -79,12 +84,12 @@ const pmmThemeOptions = (mode: PaletteMode): ThemeOptions => {
           root: ({ theme }) => ({
             height: 10,
             borderStyle: 'solid',
-            borderRadius: 5,
+            borderRadius: radii.sm,
             borderColor: theme.palette.divider,
             backgroundColor: theme.palette.background.default,
           }),
           bar: ({ theme }) => ({
-            borderRadius: 5,
+            borderRadius: radii.sm,
             backgroundColor: theme.palette.primary.main,
           }),
         },
