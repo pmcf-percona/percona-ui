@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI & MCP" />
+
+# AI & MCP
+
+Peak Design ships an [MCP](https://modelcontextprotocol.io/) server (via [`@storybook/addon-mcp`](https://storybook.js.org/addons/@storybook/addon-mcp)) so AI coding agents can read this library straight from the source of truth — component documentation, props, and ready-to-use story snippets — instead of guessing.
+
+The server exposes tools to list and fetch component documentation, get guidelines for authoring stories, build preview URLs, and run story tests.
+
+## Use it locally
+
+The MCP server runs as part of the Storybook **dev server**:
+
+```bash
+pnpm storybook:dev
+```
+
+It is then served at `http://localhost:6006/mcp`. Point your agent at it once, scoped to the project:
+
+```bash
+npx mcp-add --type http --url "http://localhost:6006/mcp" --scope project
+```
+
+Open `http://localhost:6006/mcp` in a browser to see the available tools and the manifest debugger.
+
+## The hosted docs (percona.github.io/percona-ui)
+
+Our public Storybook at <a href="https://percona.github.io/percona-ui/" target="_blank">percona.github.io/percona-ui</a> is a **static** build deployed to GitHub Pages. GitHub Pages only serves static files, so it **cannot** host the live `/mcp` endpoint — that route is answered by a running server process, which Pages doesn't provide.
+
+What the static build _does_ publish are the component manifests the addon generates (`/manifests/components.json` and `/manifests/docs.json`), which an agent or script can fetch directly. The interactive MCP protocol itself, though, needs a live server.
+
+To broadcast a public MCP endpoint at the same URL as the docs, host Storybook somewhere that runs a server — for example [Chromatic](https://www.chromatic.com/docs/mcp/), which publishes the MCP server on the `/mcp` route of your hosted Storybook, or any self-hosted Node deployment. Until then, use the local dev-server endpoint above.
