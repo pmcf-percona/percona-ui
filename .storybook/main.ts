@@ -7,7 +7,14 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-docs",
     "storybook-addon-pseudo-states",
+    "storybook-addon-tag-badges",
   ],
+  tags: {
+    stable: {},
+    experimental: {},
+    "needs-review": {},
+    deprecated: {},
+  },
   framework: {
     name: "@storybook/react-vite",
     options: {},
